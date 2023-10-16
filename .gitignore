@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Whitelist
+!.gitignore
+!update_pack.sh
+!*.py
+!docker-compose.yml
+!data/
+!modpacks/
+!extra_mods/

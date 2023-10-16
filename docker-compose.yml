@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  gtnh:
+    image: itzg/minecraft-server:java19
+    volumes:
+    - ./data:/data
+    - ./modpacks:/modpacks:ro
+    environment:
+      EULA: "true"
+      TYPE: CURSEFORGE
+      VERSION: 1.7.10
+      OVERRIDE_SERVER_PROPERTIES: true
+      CF_SERVER_MOD: /modpacks/GT_New_Horizons_2.4.0_Server_Java_17-20.zip
+      CF_BASE_DIR: /data
+      MEMORY: 6G
+      SERVER: lwjgl3ify-forgePatches.jar
+      JVM_OPTS: -Dfml.queryResult=confirm --illegal-access=warn -Djava.security.manager=allow -Dfile.encoding=UTF-8 --add-opens java.base/jdk.internal.loader=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/jdk.internal.reflect=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.desktop/sun.awt.image=ALL-UNNAMED --add-modules jdk.dynalink --add-opens jdk.dynalink/jdk.dynalink.beans=ALL-UNNAMED --add-modules java.sql.rowset --add-opens java.sql.rowset/javax.sql.rowset.serial=ALL-UNNAMED
+    ports:
+      - "25565:25565"
